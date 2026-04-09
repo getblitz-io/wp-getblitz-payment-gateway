@@ -1,0 +1,157 @@
+# GetBlitz Payment Gateway – French (fr_FR)
+# Copyright (C) 2024 GetBlitz
+# This file is distributed under the same license as the GetBlitz Payment Gateway plugin.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: GetBlitz Payment Gateway 0.0.1\n"
+"Report-Msgid-Bugs-To: https://getblitz.io/\n"
+"POT-Creation-Date: 2024-01-01 00:00+0000\n"
+"PO-Revision-Date: 2024-01-01 00:00+0000\n"
+"Last-Translator: GetBlitz <info@getblitz.io>\n"
+"Language-Team: French\n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: GetBlitz i18n\n"
+"X-Domain: getblitz-payment-gateway\n"
+
+#: getblitz-payment-gateway.php:69
+msgid "Settings"
+msgstr "Paramètres"
+
+#: includes/class-wc-gateway-getblitz.php:34
+msgid "GetBlitz SEPA Instant"
+msgstr "GetBlitz SEPA Instant"
+
+#: includes/class-wc-gateway-getblitz.php:35
+msgid "Accept SEPA Instant Transfers securely via GetBlitz."
+msgstr "Acceptez les virements SEPA instantanés en toute sécurité via GetBlitz."
+
+#: includes/class-wc-gateway-getblitz.php:58
+msgid "Enable/Disable"
+msgstr "Activer/Désactiver"
+
+#: includes/class-wc-gateway-getblitz.php:60
+msgid "Enable GetBlitz Payment"
+msgstr "Activer le paiement GetBlitz"
+
+#: includes/class-wc-gateway-getblitz.php:64
+msgid "Title"
+msgstr "Titre"
+
+#: includes/class-wc-gateway-getblitz.php:66
+msgid "This controls the title which the user sees during checkout."
+msgstr "Ce texte correspond au titre que le client voit lors du paiement."
+
+#: includes/class-wc-gateway-getblitz.php:67
+msgid "GetBlitz SEPA Instant Transfer"
+msgstr "Virement SEPA Instantané GetBlitz"
+
+#: includes/class-wc-gateway-getblitz.php:71
+msgid "Description"
+msgstr "Description"
+
+#: includes/class-wc-gateway-getblitz.php:73
+msgid "This controls the description which the user sees during checkout."
+msgstr "Cette description est affichée au client lors du paiement."
+
+#: includes/class-wc-gateway-getblitz.php:74
+msgid "Pay instantly from your bank account via SEPA Instant."
+msgstr "Payez instantanément depuis votre compte bancaire via SEPA Instant."
+
+#: includes/class-wc-gateway-getblitz.php:77
+msgid "API Key"
+msgstr "Clé API"
+
+#: includes/class-wc-gateway-getblitz.php:79
+msgid "Your GetBlitz Organization API Key."
+msgstr "Votre clé API d'organisation GetBlitz."
+
+#: includes/class-wc-gateway-getblitz.php:84
+msgid "Webhook Secret"
+msgstr "Secret Webhook"
+
+#: includes/class-wc-gateway-getblitz.php:86
+msgid "The secret used to verify webhook signatures. Retrieve from GetBlitz Dashboard."
+msgstr "Le secret utilisé pour vérifier les signatures des webhooks. À récupérer dans le tableau de bord GetBlitz."
+
+#: includes/class-wc-gateway-getblitz.php:91
+msgid "Base API URL"
+msgstr "URL de base de l'API"
+
+#: includes/class-wc-gateway-getblitz.php:93
+msgid "Base API URL for self-hosted instances. Defaults to https://app.getblitz.io"
+msgstr "URL de base de l'API pour les instances auto-hébergées. Par défaut : https://app.getblitz.io"
+
+#: includes/class-wc-gateway-getblitz.php:98
+msgid "WebSocket URL"
+msgstr "URL WebSocket"
+
+#: includes/class-wc-gateway-getblitz.php:100
+msgid "Optional WebSocket URL for real-time updates on self-hosted instances."
+msgstr "URL WebSocket optionnelle pour les mises à jour en temps réel sur les instances auto-hébergées."
+
+#: includes/class-wc-gateway-getblitz.php:111
+msgid "GetBlitz arrangement error: Ensure API Key is configured."
+msgstr "Erreur de configuration GetBlitz : veuillez vous assurer que la clé API est configurée."
+
+#: includes/class-wc-gateway-getblitz.php:119
+msgid "GetBlitz currently only supports EUR currency."
+msgstr "GetBlitz ne prend actuellement en charge que la devise EUR."
+
+#: includes/class-wc-gateway-getblitz.php:146
+msgid "An error occurred communicating with the payment gateway."
+msgstr "Une erreur s'est produite lors de la communication avec la passerelle de paiement."
+
+#: includes/class-wc-gateway-getblitz.php:156
+msgid "Could not create payment session. Please try again."
+msgstr "Impossible de créer la session de paiement. Veuillez réessayer."
+
+#: includes/class-wc-gateway-getblitz.php:166
+msgid "Awaiting GetBlitz SEPA payment."
+msgstr "En attente du paiement SEPA GetBlitz."
+
+#: includes/class-wc-gateway-getblitz.php:181
+msgid "Missing payment session details. Please try placing your order again."
+msgstr "Informations de session de paiement manquantes. Veuillez passer votre commande à nouveau."
+
+#: includes/class-wc-gateway-getblitz.php:216
+msgid "Confirming your payment, please wait\xe2\x80\xa6"
+msgstr "Confirmation de votre paiement en cours, veuillez patienter\xe2\x80\xa6"
+
+#: includes/class-wc-gateway-getblitz.php:238
+msgid "Unable to load payment widget. Please refresh and try again."
+msgstr "Impossible de charger le widget de paiement. Veuillez actualiser la page et réessayer."
+
+#: includes/class-wc-gateway-getblitz.php:272
+#: includes/class-wc-gateway-getblitz.php:279
+msgid "Payment received \xe2\x80\x94 your order is being processed. You will receive a confirmation email shortly."
+msgstr "Paiement reçu \xe2\x80\x94 votre commande est en cours de traitement. Vous recevrez un e-mail de confirmation sous peu."
+
+#: includes/class-wc-gateway-getblitz.php:368
+msgid "GetBlitz payment successfully confirmed via webhook."
+msgstr "Paiement GetBlitz confirmé avec succès via webhook."
+
+#: includes/class-wc-gateway-getblitz.php:374
+#, php-format
+msgid "GetBlitz: Partial payment received online: %s EUR."
+msgstr "GetBlitz : Paiement partiel reçu en ligne : %s EUR."
+
+#: includes/class-wc-gateway-getblitz.php:378
+msgid "GetBlitz payment failed from provider."
+msgstr "Le paiement GetBlitz a échoué côté prestataire."
+
+#: includes/class-wc-gateway-getblitz.php:383
+msgid "GetBlitz payment session expired."
+msgstr "La session de paiement GetBlitz a expiré."
+
+#: includes/class-wc-gateway-getblitz.php:432
+msgid "GetBlitz payment verified via API during checkout."
+msgstr "Paiement GetBlitz vérifié via l'API lors du paiement."
+
+#: includes/class-wc-gateway-getblitz.php:444
+msgid "GetBlitz payment received by client; awaiting final server confirmation."
+msgstr "Paiement GetBlitz reçu par le client ; en attente de la confirmation finale du serveur."

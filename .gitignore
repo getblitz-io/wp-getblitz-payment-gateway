@@ -1,0 +1,18 @@
+# Ignore WordPress core files mapped by Docker
+wp-admin/
+wp-includes/
+wp-content/
+*.php
+!getblitz-payment-gateway.php
+!includes/
+
+# Ignore Docker environment variables
+.env
+
+# Ignore OS generated files
+.DS_Store
+Thumbs.db
+
+# Ignore node_modules if we add a build step later
+node_modules/
+dist/
