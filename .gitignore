@@ -2,9 +2,9 @@
 wp-admin/
 wp-includes/
 wp-content/
-*.php
-!getblitz-payment-gateway.php
-!includes/
+/*.php
+!/getblitz-payment-gateway.php
+!/includes/
 
 # Ignore Docker environment variables
 .env
