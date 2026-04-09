@@ -3,9 +3,9 @@ Contributors: getblitz-io
 Tags: sepa, instant-transfer, payments, europe, woocommerce, bank-transfer, getblitz
 Requires at least: 6.0
 Tested up to: 6.4
-Stable tag: 0.1.0
-License: GPLv2 or later
-License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Stable tag: 0.0.1 <!-- x-release-please-version -->
+License: MIT
+License URI: https://opensource.org/licenses/MIT
 
 Accept SEPA Instant Transfers across Europe with the GetBlitz Payment Gateway. Secure, fast, and open-source.
 
@@ -44,7 +44,7 @@ Yes, GetBlitz does not charge per transaction. Depending on your setup, you pay 
 
 == Changelog ==
 
-= 0.1.0 =
+= 0.0.1 =
 * Initial release.
 * Support for SEPA Instant Transfers via GetBlitz SDK.
 * Real-time payment verification.

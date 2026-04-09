@@ -2,12 +2,12 @@
 /**
  * Plugin Name: GetBlitz Payment Gateway
  * Plugin URI: https://github.com/getblitz-io/wp-getblitz-payment-gateway
- * Description: Accept SEPA Instant Transfers across Europe with the GetBlitz Payment Gateway.
- * Version: 0.1.0
+ * Description: Integrate GetBlitz secure and fast checkout into your WooCommerce store.
+ * Version: 0.0.1 <!-- x-release-please-version -->
  * Author: GetBlitz
  * Author URI: https://getblitz.io/
- * License: GPLv2 or later
- * License URI: https://www.gnu.org/licenses/gpl-2.0.html
+ * License: MIT
+ * License URI: https://opensource.org/licenses/MIT
  * Text Domain: getblitz-payment-gateway
  * Requires at least: 6.0
  * Requires PHP: 7.4
