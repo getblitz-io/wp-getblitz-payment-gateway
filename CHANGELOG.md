@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.3](https://github.com/getblitz-io/wp-getblitz-payment-gateway/compare/v0.1.2...v0.1.3) (2026-04-11)
+
+
+### Bug Fixes
+
+* improve security with output escaping, standardize versioning, and update logging/script registration methods ([7806ee8](https://github.com/getblitz-io/wp-getblitz-payment-gateway/commit/7806ee8e0285bba86acc4e8a6dc84ad7f41e1eb2))
+
 ## [0.1.2](https://github.com/getblitz-io/wp-getblitz-payment-gateway/compare/v0.1.1...v0.1.2) (2026-04-11)
 
 
