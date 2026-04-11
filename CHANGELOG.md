@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.4](https://github.com/getblitz-io/wp-getblitz-payment-gateway/compare/v0.1.3...v0.1.4) (2026-04-11)
+
+
+### Bug Fixes
+
+* update release workflow to support versioned zip filenames and ignore them in builds ([3a8ef28](https://github.com/getblitz-io/wp-getblitz-payment-gateway/commit/3a8ef281e6918e7e8e879f37f74d2d31554edae9))
+
 ## [0.1.3](https://github.com/getblitz-io/wp-getblitz-payment-gateway/compare/v0.1.2...v0.1.3) (2026-04-11)
 
 
