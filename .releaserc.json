@@ -1,0 +1,44 @@
+{
+  "plugins": [
+    "@semantic-release/commit-analyzer",
+    "@semantic-release/release-notes-generator",
+    [
+      "@semantic-release/changelog",
+      {
+        "changelogFile": "CHANGELOG.md"
+      }
+    ],
+    [
+      "@semantic-release/wordpress",
+      {
+        "type": "plugin",
+        "slug": "getblitz-payment-gateway",
+        "withAssets": false,
+        "withReadme": true,
+        "withVersionFile": true
+      }
+    ],
+    [
+      "@semantic-release/github",
+      {
+        "assets": [
+          {
+            "path": "/tmp/wp-release/getblitz-payment-gateway.zip",
+            "label": "GetBlitz Payment Gateway plugin"
+          }
+        ]
+      }
+    ],
+    [
+      "@semantic-release/git",
+      {
+        "assets": [
+          "CHANGELOG.md",
+          "readme.txt",
+          "getblitz-payment-gateway.php"
+        ],
+        "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+      }
+    ]
+  ]
+}

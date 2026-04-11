@@ -260,7 +260,7 @@ class WC_Gateway_GetBlitz extends WC_Payment_Gateway {
                 <p id="getblitz-status-message"><?php esc_html_e('Confirming your payment, please wait…', 'getblitz-payment-gateway'); ?></p>
             </div>
         </div>
-        <?php wp_enqueue_script('getblitz-client', 'https://unpkg.com/@getblitz/client/dist/getblitz.umd.cjs', array(), GETBLITZ_VERSION, true); ?>
+        <?php wp_enqueue_script('getblitz-client', GETBLITZ_PLUGIN_URL . 'assets/js/getblitz-client.js', array(), GETBLITZ_VERSION, true); ?>
         <script>
             document.addEventListener('DOMContentLoaded', function() {
                 var initGetBlitz = setInterval(function() {

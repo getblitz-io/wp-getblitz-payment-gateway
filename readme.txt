@@ -3,9 +3,7 @@ Contributors: getblitz-io
 Tags: sepa, payments, woocommerce, bank-transfer, getblitz
 Requires at least: 6.0
 Tested up to: 6.9
-<!-- x-release-please-start-version -->
-Stable tag: 0.1.5
-<!-- x-release-please-end -->
+Stable tag: 0.0.0
 License: MIT
 License URI: https://opensource.org/licenses/MIT
 

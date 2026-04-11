@@ -42,7 +42,7 @@ You can easily copy your exact webhook URL from the plugin configuration screen 
 ## GitHub Actions & Automated Releases
 
 This repository utilizes **GitHub Actions** for continuous integration and automated deployments. 
-We use **Release Please** to automatically version the plugin based on Conventional Commits, update the `readme.txt` and plugin headers, and package the release ZIP file for the WordPress Plugin directory. 
+We use **Semantic Release** to automatically version the plugin based on Conventional Commits, update the `readme.txt` and plugin headers, and package the release ZIP file for the WordPress Plugin directory. 
 
 ## Contributing
 
