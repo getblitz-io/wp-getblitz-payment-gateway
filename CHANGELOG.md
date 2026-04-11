@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.5](https://github.com/getblitz-io/wp-getblitz-payment-gateway/compare/v0.1.4...v0.1.5) (2026-04-11)
+
+
+### Bug Fixes
+
+* remove prerelease configuration and update stable tag in readme ([c492688](https://github.com/getblitz-io/wp-getblitz-payment-gateway/commit/c492688ea6f9707144af529d23f33d4c08266c97))
+
 ## [0.1.4](https://github.com/getblitz-io/wp-getblitz-payment-gateway/compare/v0.1.3...v0.1.4) (2026-04-11)
 
 
