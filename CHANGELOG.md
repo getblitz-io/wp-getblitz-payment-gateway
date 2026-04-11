@@ -1,3 +1,10 @@
+## [0.0.1](https://github.com/getblitz-io/wp-getblitz-payment-gateway/compare/v0.0.0...v0.0.1) (2026-04-11)
+
+
+### Bug Fixes
+
+* execute automated 0.0.1 semantic release pipeline ([9a0a978](https://github.com/getblitz-io/wp-getblitz-payment-gateway/commit/9a0a97865ced80cd61d375447712e7f1d4568ffb))
+
 # 1.0.0 (2026-04-11)
 
 
