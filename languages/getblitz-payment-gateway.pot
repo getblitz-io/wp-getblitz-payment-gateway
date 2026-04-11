@@ -155,3 +155,54 @@ msgstr ""
 #: includes/class-wc-gateway-getblitz.php:444
 msgid "GetBlitz payment received by client; awaiting final server confirmation."
 msgstr ""
+
+msgid "Step-by-Step Configuration"
+msgstr ""
+
+msgid "Whitelist your Allowed Origin"
+msgstr ""
+
+msgid "The allowed origin determines where your GetBlitz payment widget can be loaded."
+msgstr ""
+
+msgid "Go to:"
+msgstr ""
+
+msgid "Value to add:"
+msgstr ""
+
+msgid "Allowed Origin copied to clipboard!"
+msgstr ""
+
+msgid "Copy Link"
+msgstr ""
+
+msgid "Configure the Webhook URL"
+msgstr ""
+
+msgid "We use webhooks to get real-time status updates on payments."
+msgstr ""
+
+msgid "URL to add:"
+msgstr ""
+
+msgid "Webhook URL copied to clipboard!"
+msgstr ""
+
+msgid "Important: Make sure to copy the Webhook Secret from the GetBlitz dashboard and paste it in the \"Webhook Secret\" field below."
+msgstr ""
+
+msgid "Generate an API Key"
+msgstr ""
+
+msgid "The API key allows this plugin to communicate with GetBlitz."
+msgstr ""
+
+msgid "Paste the generated API Key in the \"API Key\" field below."
+msgstr ""
+
+msgid "Your GetBlitz Organization API Key. Generate it at Getblitz -> Settings -> API Keys -> Generate New Key."
+msgstr ""
+
+msgid "The secret used to verify webhook signatures. Retrieve from Getblitz -> Settings -> Webhooks -> Add Webhook."
+msgstr ""

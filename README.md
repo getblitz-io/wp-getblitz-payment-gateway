@@ -12,6 +12,7 @@ With this WooCommerce plugin, you can accept real-time EUR bank transfers across
 - **Documentation:** [https://docs.getblitz.io](https://docs.getblitz.io)
 - **Open Source Repository:** [https://github.com/getblitz-io/getblitz](https://github.com/getblitz-io/getblitz)
 - **Plugin Repository:** [https://github.com/getblitz-io/wp-getblitz-payment-gateway](https://github.com/getblitz-io/wp-getblitz-payment-gateway)
+- **Latest Release:** [https://github.com/getblitz-io/wp-getblitz-payment-gateway/releases](https://github.com/getblitz-io/wp-getblitz-payment-gateway/releases)
 
 ## Features
 
@@ -24,6 +25,19 @@ With this WooCommerce plugin, you can accept real-time EUR bank transfers across
 ## Installation
 
 You can find the standard WordPress plugin installation instructions and more details in the `readme.txt` file.
+
+## Configuration
+
+To complete the setup, you'll need to configure your webhook and API keys:
+
+1. **Allowed Origins**: Add your WordPress site URL to allow the payment widget to load.
+   - Go to `Getblitz -> Settings -> Allowed Origins -> Add`
+2. **Webhooks**: Add your WordPress site webhook URL to receive payment status updates. You must copy the webhook secret into the WooCommerce plugin settings.
+   - Go to `Getblitz -> Settings -> Webhooks -> Add Webhook`
+3. **API Key**: Generate a new API key to allow communication. Copy this key into the WooCommerce plugin settings.
+   - Go to `Getblitz -> Settings -> API Keys -> Generate New Key`
+
+You can easily copy your exact webhook URL from the plugin configuration screen under `WooCommerce -> Settings -> Payments -> GetBlitz SEPA Instant`.
 
 ## GitHub Actions & Automated Releases
 

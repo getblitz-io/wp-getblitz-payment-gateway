@@ -155,3 +155,54 @@ msgstr "Paiement GetBlitz vérifié via l'API lors du paiement."
 #: includes/class-wc-gateway-getblitz.php:444
 msgid "GetBlitz payment received by client; awaiting final server confirmation."
 msgstr "Paiement GetBlitz reçu par le client ; en attente de la confirmation finale du serveur."
+
+msgid "Step-by-Step Configuration"
+msgstr "Configuration étape par étape"
+
+msgid "Whitelist your Allowed Origin"
+msgstr "Autorisez votre domaine (Allowed Origin)"
+
+msgid "The allowed origin determines where your GetBlitz payment widget can be loaded."
+msgstr "Le domaine autorisé (Allowed Origin) détermine où le widget de paiement GetBlitz peut être chargé."
+
+msgid "Go to:"
+msgstr "Allez dans :"
+
+msgid "Value to add:"
+msgstr "Valeur à ajouter :"
+
+msgid "Allowed Origin copied to clipboard!"
+msgstr "Allowed origin copié dans le presse-papiers !"
+
+msgid "Copy Link"
+msgstr "Copier le lien"
+
+msgid "Configure the Webhook URL"
+msgstr "Configurez l'URL du Webhook"
+
+msgid "We use webhooks to get real-time status updates on payments."
+msgstr "Nous utilisons les webhooks pour obtenir des mises à jour en temps réel sur l'état des paiements."
+
+msgid "URL to add:"
+msgstr "URL à ajouter :"
+
+msgid "Webhook URL copied to clipboard!"
+msgstr "URL du webhook copiée dans le presse-papiers !"
+
+msgid "Important: Make sure to copy the Webhook Secret from the GetBlitz dashboard and paste it in the \"Webhook Secret\" field below."
+msgstr "Important : Assurez-vous de copier le Webhook Secret depuis le tableau de bord GetBlitz et de le coller dans le champ \"Webhook Secret\" ci-dessous."
+
+msgid "Generate an API Key"
+msgstr "Générez une clé API"
+
+msgid "The API key allows this plugin to communicate with GetBlitz."
+msgstr "La clé API permet à cette extension de communiquer avec GetBlitz."
+
+msgid "Paste the generated API Key in the \"API Key\" field below."
+msgstr "Collez la clé API générée dans le champ \"Clé API\" ci-dessous."
+
+msgid "Your GetBlitz Organization API Key. Generate it at Getblitz -> Settings -> API Keys -> Generate New Key."
+msgstr "La clé API de votre organisation GetBlitz. Générez-la dans Getblitz -> Settings -> API Keys -> Generate New Key."
+
+msgid "The secret used to verify webhook signatures. Retrieve from Getblitz -> Settings -> Webhooks -> Add Webhook."
+msgstr "Le secret utilisé pour vérifier les signatures webhooks. Récupérez-le dans Getblitz -> Settings -> Webhooks -> Add Webhook."

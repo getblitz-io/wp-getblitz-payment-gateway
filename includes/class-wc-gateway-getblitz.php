@@ -52,6 +52,50 @@ class WC_Gateway_GetBlitz extends WC_Payment_Gateway {
         add_action('woocommerce_api_wc_gateway_getblitz_verify', array($this, 'verify_handler'));
     }
 
+    public function admin_options() {
+        $webhook_url = add_query_arg('wc-api', 'wc_gateway_getblitz', home_url('/'));
+        ?>
+        <h2><?php echo esc_html($this->get_method_title()); ?></h2>
+        <?php echo wp_kses_post(wpautop($this->get_method_description())); ?>
+
+        <details style="background: #fff; border: 1px solid #c3c4c7; padding: 15px 20px; margin: 20px 0;">
+            <summary style="font-size: 1.2em; font-weight: 600; cursor: pointer; outline: none; margin-bottom: 0;"><?php _e('Step-by-Step Configuration', 'getblitz-payment-gateway'); ?></summary>
+            <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #eee;">
+            <ol style="margin-left: 20px; list-style-type: decimal; line-height: 1.6;">
+                <li style="margin-bottom: 20px;">
+                    <strong><?php _e('Whitelist your Allowed Origin', 'getblitz-payment-gateway'); ?></strong><br>
+                    <?php _e('The allowed origin determines where your GetBlitz payment widget can be loaded.', 'getblitz-payment-gateway'); ?><br>
+                    <em><?php _e('Go to:', 'getblitz-payment-gateway'); ?> <strong>Getblitz &rarr; Settings &rarr; Allowed Origins &rarr; Add</strong></em><br>
+                    <?php _e('Value to add:', 'getblitz-payment-gateway'); ?> 
+                    <code id="getblitz-allowed-origin"><?php echo esc_url(home_url('/')); ?></code>
+                    <a href="#" class="button button-small" onclick="event.preventDefault(); const btn = this; navigator.clipboard.writeText(document.getElementById('getblitz-allowed-origin').innerText).then(() => { btn.innerHTML = '&#10004;'; setTimeout(() => btn.innerHTML = '<?php echo esc_js(__('Copy Link', 'getblitz-payment-gateway')); ?>', 2000); });"><?php esc_html_e('Copy Link', 'getblitz-payment-gateway'); ?></a>
+                </li>
+                <li style="margin-bottom: 20px;">
+                    <strong><?php _e('Configure the Webhook URL', 'getblitz-payment-gateway'); ?></strong><br>
+                    <?php _e('We use webhooks to get real-time status updates on payments.', 'getblitz-payment-gateway'); ?><br>
+                    <em><?php _e('Go to:', 'getblitz-payment-gateway'); ?> <strong>Getblitz &rarr; Settings &rarr; Webhooks &rarr; Add Webhook</strong></em><br>
+                    <?php _e('URL to add:', 'getblitz-payment-gateway'); ?> 
+                    <code id="getblitz-webhook-url"><?php echo esc_url($webhook_url); ?></code> 
+                    <a href="#" class="button button-small" onclick="event.preventDefault(); const btn = this; navigator.clipboard.writeText(document.getElementById('getblitz-webhook-url').innerText).then(() => { btn.innerHTML = '&#10004;'; setTimeout(() => btn.innerHTML = '<?php echo esc_js(__('Copy Link', 'getblitz-payment-gateway')); ?>', 2000); });"><?php esc_html_e('Copy Link', 'getblitz-payment-gateway'); ?></a>
+                    <br>
+                    <span style="color: #d63638; font-size: 0.9em;"><?php _e('Important: Make sure to copy the Webhook Secret from the GetBlitz dashboard and paste it in the "Webhook Secret" field below.', 'getblitz-payment-gateway'); ?></span>
+                </li>
+                <li>
+                    <strong><?php _e('Generate an API Key', 'getblitz-payment-gateway'); ?></strong><br>
+                    <?php _e('The API key allows this plugin to communicate with GetBlitz.', 'getblitz-payment-gateway'); ?><br>
+                    <em><?php _e('Go to:', 'getblitz-payment-gateway'); ?> <strong>Getblitz &rarr; Settings &rarr; API Keys &rarr; Generate New Key</strong></em><br>
+                    <span style="font-size: 0.9em;"><?php _e('Paste the generated API Key in the "API Key" field below.', 'getblitz-payment-gateway'); ?></span>
+                </li>
+            </ol>
+            </div>
+        </details>
+
+        <table class="form-table">
+            <?php $this->generate_settings_html(); ?>
+        </table>
+        <?php
+    }
+
     public function init_form_fields() {
         $this->form_fields = array(
             'enabled' => array(
@@ -76,14 +120,14 @@ class WC_Gateway_GetBlitz extends WC_Payment_Gateway {
             'api_key' => array(
                 'title'       => __('API Key', 'getblitz-payment-gateway'),
                 'type'        => 'password',
-                'description' => __('Your GetBlitz Organization API Key.', 'getblitz-payment-gateway'),
+                'description' => __('Your GetBlitz Organization API Key. Generate it at Getblitz -> Settings -> API Keys -> Generate New Key.', 'getblitz-payment-gateway'),
                 'default'     => '',
                 'desc_tip'    => true,
             ),
             'webhook_secret' => array(
                 'title'       => __('Webhook Secret', 'getblitz-payment-gateway'),
                 'type'        => 'password',
-                'description' => __('The secret used to verify webhook signatures. Retrieve from GetBlitz Dashboard.', 'getblitz-payment-gateway'),
+                'description' => __('The secret used to verify webhook signatures. Retrieve from Getblitz -> Settings -> Webhooks -> Add Webhook.', 'getblitz-payment-gateway'),
                 'default'     => '',
                 'desc_tip'    => true,
             ),
