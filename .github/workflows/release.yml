@@ -33,4 +33,4 @@ jobs:
         if: ${{ steps.release.outputs.release_created }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh release upload ${{ steps.release.outputs.tag_name }} getblitz-payment-gateway.zip
+        run: gh release upload ${{ steps.release.outputs.tag_name }} getblitz-payment-gateway-*.zip

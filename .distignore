@@ -4,6 +4,6 @@
 .distignore
 docker-compose.yml
 bin
-getblitz-payment-gateway.zip
+*.zip
 release-please-config.json
 .release-please-manifest.json
