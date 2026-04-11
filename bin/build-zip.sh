@@ -4,7 +4,8 @@
 set -e
 
 PLUGIN_SLUG="getblitz-payment-gateway"
-ZIP_NAME="${PLUGIN_SLUG}.zip"
+VERSION=$(grep -m 1 "Version:" getblitz-payment-gateway.php | awk '{print $NF}')
+ZIP_NAME="${PLUGIN_SLUG}-${VERSION}.zip"
 
 echo "🧹 Cleaning up previous builds..."
 rm -rf "/tmp/${PLUGIN_SLUG}"

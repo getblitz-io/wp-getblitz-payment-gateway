@@ -3,7 +3,9 @@
  * Plugin Name: GetBlitz Payment Gateway
  * Plugin URI: https://github.com/getblitz-io/wp-getblitz-payment-gateway
  * Description: Integrate GetBlitz secure and fast checkout into your WooCommerce store.
- * Version: 0.1.2 <!-- x-release-please-version -->
+ * <!-- x-release-please-start-version -->
+ * Version: 0.1.2
+ * <!-- x-release-please-end -->
  * Author: GetBlitz
  * Author URI: https://getblitz.io/
  * License: MIT
@@ -19,6 +21,7 @@
 defined('ABSPATH') || exit;
 
 define('GETBLITZ_PLUGIN_URL', plugin_dir_url(__FILE__));
+define('GETBLITZ_VERSION', '0.1.2'); // x-release-please-version
 
 // Declare compatibility with WooCommerce Blocks checkout
 add_action('before_woocommerce_init', function() {
@@ -27,16 +30,7 @@ add_action('before_woocommerce_init', function() {
     }
 });
 
-// Load plugin translations
-add_action('plugins_loaded', 'getblitz_load_textdomain', 1);
 
-function getblitz_load_textdomain() {
-    load_plugin_textdomain(
-        'getblitz-payment-gateway',
-        false,
-        dirname(plugin_basename(__FILE__)) . '/languages/'
-    );
-}
 
 // Hook to check for WooCommerce before initializing our gateway
 add_action('plugins_loaded', 'getblitz_payment_gateway_init', 11);
@@ -69,7 +63,9 @@ function getblitz_register_standalone_blocks() {
     wp_register_script(
         'getblitz-messaging-block',
         $script_url,
-        array('wp-blocks', 'wp-element', 'wp-components', 'wp-editor')
+        array('wp-blocks', 'wp-element', 'wp-components', 'wp-editor'),
+        GETBLITZ_VERSION,
+        true
     );
 
     wp_localize_script('getblitz-messaging-block', 'getblitzMessagingVars', array(

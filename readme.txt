@@ -1,9 +1,9 @@
 === GetBlitz Payment Gateway ===
 Contributors: getblitz-io
-Tags: sepa, instant-transfer, payments, europe, woocommerce, bank-transfer, getblitz
+Tags: sepa, payments, woocommerce, bank-transfer, getblitz
 Requires at least: 6.0
-Tested up to: 6.4
-Stable tag: 0.1.2 <!-- x-release-please-version -->
+Tested up to: 6.9
+Stable tag: 0.1.2
 License: MIT
 License URI: https://opensource.org/licenses/MIT
 

@@ -48,7 +48,7 @@ final class WC_Gateway_GetBlitz_Blocks_Support extends AbstractPaymentMethodType
                 'wp-html-entities',
                 'wp-blocks',
             ],
-            null, // Could use version if desired
+            GETBLITZ_VERSION,
             true
         );
 

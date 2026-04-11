@@ -26,6 +26,9 @@ wp config set WP_DEBUG_LOG true --raw --allow-root --path="/var/www/html" || tru
 echo "Installing WooCommerce..."
 wp plugin install woocommerce --activate --allow-root --path="/var/www/html" || true
 
+echo "Installing WPCheck..."
+wp plugin install wpcheck --activate --allow-root --path="/var/www/html" || true
+
 echo "Activating GetBlitz Plugin..."
 wp plugin activate getblitz-wordpress --allow-root --path="/var/www/html" || true
 

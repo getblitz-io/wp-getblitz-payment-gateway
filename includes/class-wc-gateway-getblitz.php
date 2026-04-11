@@ -59,32 +59,32 @@ class WC_Gateway_GetBlitz extends WC_Payment_Gateway {
         <?php echo wp_kses_post(wpautop($this->get_method_description())); ?>
 
         <details style="background: #fff; border: 1px solid #c3c4c7; padding: 15px 20px; margin: 20px 0;">
-            <summary style="font-size: 1.2em; font-weight: 600; cursor: pointer; outline: none; margin-bottom: 0;"><?php _e('Step-by-Step Configuration', 'getblitz-payment-gateway'); ?></summary>
+            <summary style="font-size: 1.2em; font-weight: 600; cursor: pointer; outline: none; margin-bottom: 0;"><?php esc_html_e('Step-by-Step Configuration', 'getblitz-payment-gateway'); ?></summary>
             <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #eee;">
             <ol style="margin-left: 20px; list-style-type: decimal; line-height: 1.6;">
                 <li style="margin-bottom: 20px;">
-                    <strong><?php _e('Whitelist your Allowed Origin', 'getblitz-payment-gateway'); ?></strong><br>
-                    <?php _e('The allowed origin determines where your GetBlitz payment widget can be loaded.', 'getblitz-payment-gateway'); ?><br>
-                    <em><?php _e('Go to:', 'getblitz-payment-gateway'); ?> <strong>Getblitz &rarr; Settings &rarr; Allowed Origins &rarr; Add</strong></em><br>
-                    <?php _e('Value to add:', 'getblitz-payment-gateway'); ?> 
+                    <strong><?php esc_html_e('Whitelist your Allowed Origin', 'getblitz-payment-gateway'); ?></strong><br>
+                    <?php esc_html_e('The allowed origin determines where your GetBlitz payment widget can be loaded.', 'getblitz-payment-gateway'); ?><br>
+                    <em><?php esc_html_e('Go to:', 'getblitz-payment-gateway'); ?> <strong>Getblitz &rarr; Settings &rarr; Allowed Origins &rarr; Add</strong></em><br>
+                    <?php esc_html_e('Value to add:', 'getblitz-payment-gateway'); ?> 
                     <code id="getblitz-allowed-origin"><?php echo esc_url(home_url('/')); ?></code>
                     <a href="#" class="button button-small" onclick="event.preventDefault(); const btn = this; navigator.clipboard.writeText(document.getElementById('getblitz-allowed-origin').innerText).then(() => { btn.innerHTML = '&#10004;'; setTimeout(() => btn.innerHTML = '<?php echo esc_js(__('Copy Link', 'getblitz-payment-gateway')); ?>', 2000); });"><?php esc_html_e('Copy Link', 'getblitz-payment-gateway'); ?></a>
                 </li>
                 <li style="margin-bottom: 20px;">
-                    <strong><?php _e('Configure the Webhook URL', 'getblitz-payment-gateway'); ?></strong><br>
-                    <?php _e('We use webhooks to get real-time status updates on payments.', 'getblitz-payment-gateway'); ?><br>
-                    <em><?php _e('Go to:', 'getblitz-payment-gateway'); ?> <strong>Getblitz &rarr; Settings &rarr; Webhooks &rarr; Add Webhook</strong></em><br>
-                    <?php _e('URL to add:', 'getblitz-payment-gateway'); ?> 
+                    <strong><?php esc_html_e('Configure the Webhook URL', 'getblitz-payment-gateway'); ?></strong><br>
+                    <?php esc_html_e('We use webhooks to get real-time status updates on payments.', 'getblitz-payment-gateway'); ?><br>
+                    <em><?php esc_html_e('Go to:', 'getblitz-payment-gateway'); ?> <strong>Getblitz &rarr; Settings &rarr; Webhooks &rarr; Add Webhook</strong></em><br>
+                    <?php esc_html_e('URL to add:', 'getblitz-payment-gateway'); ?> 
                     <code id="getblitz-webhook-url"><?php echo esc_url($webhook_url); ?></code> 
                     <a href="#" class="button button-small" onclick="event.preventDefault(); const btn = this; navigator.clipboard.writeText(document.getElementById('getblitz-webhook-url').innerText).then(() => { btn.innerHTML = '&#10004;'; setTimeout(() => btn.innerHTML = '<?php echo esc_js(__('Copy Link', 'getblitz-payment-gateway')); ?>', 2000); });"><?php esc_html_e('Copy Link', 'getblitz-payment-gateway'); ?></a>
                     <br>
-                    <span style="color: #d63638; font-size: 0.9em;"><?php _e('Important: Make sure to copy the Webhook Secret from the GetBlitz dashboard and paste it in the "Webhook Secret" field below.', 'getblitz-payment-gateway'); ?></span>
+                    <span style="color: #d63638; font-size: 0.9em;"><?php esc_html_e('Important: Make sure to copy the Webhook Secret from the GetBlitz dashboard and paste it in the "Webhook Secret" field below.', 'getblitz-payment-gateway'); ?></span>
                 </li>
                 <li>
-                    <strong><?php _e('Generate an API Key', 'getblitz-payment-gateway'); ?></strong><br>
-                    <?php _e('The API key allows this plugin to communicate with GetBlitz.', 'getblitz-payment-gateway'); ?><br>
-                    <em><?php _e('Go to:', 'getblitz-payment-gateway'); ?> <strong>Getblitz &rarr; Settings &rarr; API Keys &rarr; Generate New Key</strong></em><br>
-                    <span style="font-size: 0.9em;"><?php _e('Paste the generated API Key in the "API Key" field below.', 'getblitz-payment-gateway'); ?></span>
+                    <strong><?php esc_html_e('Generate an API Key', 'getblitz-payment-gateway'); ?></strong><br>
+                    <?php esc_html_e('The API key allows this plugin to communicate with GetBlitz.', 'getblitz-payment-gateway'); ?><br>
+                    <em><?php esc_html_e('Go to:', 'getblitz-payment-gateway'); ?> <strong>Getblitz &rarr; Settings &rarr; API Keys &rarr; Generate New Key</strong></em><br>
+                    <span style="font-size: 0.9em;"><?php esc_html_e('Paste the generated API Key in the "API Key" field below.', 'getblitz-payment-gateway'); ?></span>
                 </li>
             </ol>
             </div>
@@ -186,7 +186,7 @@ class WC_Gateway_GetBlitz extends WC_Payment_Gateway {
         ));
 
         if (is_wp_error($response)) {
-            error_log('GetBlitz API Error: ' . $response->get_error_message());
+            wc_get_logger()->error('GetBlitz API Error: ' . $response->get_error_message(), array('source' => 'getblitz'));
             wc_add_notice(__('An error occurred communicating with the payment gateway.', 'getblitz-payment-gateway'), 'error');
             return;
         }
@@ -196,7 +196,7 @@ class WC_Gateway_GetBlitz extends WC_Payment_Gateway {
         $data = json_decode($response_body, true);
 
         if ($response_code >= 400 || empty($data['sessionId']) || empty($data['clientToken'])) {
-            error_log('GetBlitz Error Response: ' . $response_body);
+            wc_get_logger()->error('GetBlitz Error Response: ' . $response_body, array('source' => 'getblitz'));
             wc_add_notice(__('Could not create payment session. Please try again.', 'getblitz-payment-gateway'), 'error');
             return;
         }
@@ -260,31 +260,30 @@ class WC_Gateway_GetBlitz extends WC_Payment_Gateway {
                 <p id="getblitz-status-message"><?php esc_html_e('Confirming your payment, please wait…', 'getblitz-payment-gateway'); ?></p>
             </div>
         </div>
-        <script src="https://unpkg.com/@getblitz/client/dist/getblitz.umd.cjs"></script>
+        <?php wp_enqueue_script('getblitz-client', 'https://unpkg.com/@getblitz/client/dist/getblitz.umd.cjs', array(), GETBLITZ_VERSION, true); ?>
         <script>
-            (function() {
-                var config = {
-                    sessionId: "<?php echo esc_js($session_id); ?>",
-                    clientToken: "<?php echo esc_js($client_token); ?>"
-                };
+            document.addEventListener('DOMContentLoaded', function() {
+                var initGetBlitz = setInterval(function() {
+                    if (typeof GetBlitz === 'undefined') {
+                        return;
+                    }
+                    clearInterval(initGetBlitz);
 
-                <?php if (!empty($js_api_url)) : ?>
-                    config.apiUrl = "<?php echo $js_api_url; ?>";
-                <?php endif; ?>
+                    var config = {
+                        sessionId: "<?php echo esc_js($session_id); ?>",
+                        clientToken: "<?php echo esc_js($client_token); ?>"
+                    };
 
-                <?php if (!empty($js_wss_url)) : ?>
-                    config.wssUrl = "<?php echo $js_wss_url; ?>";
-                <?php endif; ?>
+                    <?php if (!empty($js_api_url)) : ?>
+                        config.apiUrl = "<?php echo esc_js($js_api_url); ?>";
+                    <?php endif; ?>
 
-                // Ensure GetBlitz is available
-                if (typeof GetBlitz === 'undefined') {
-                    console.error("GetBlitz widget failed to load.");
-                    document.getElementById('getblitz-payment-container').innerHTML = '<p><?php echo esc_js(__('Unable to load payment widget. Please refresh and try again.', 'getblitz-payment-gateway')); ?></p>';
-                    return;
-                }
+                    <?php if (!empty($js_wss_url)) : ?>
+                        config.wssUrl = "<?php echo esc_js($js_wss_url); ?>";
+                    <?php endif; ?>
 
-                var GetBlitzClass = (typeof GetBlitz.GetBlitz === 'function') ? GetBlitz.GetBlitz : GetBlitz;
-                var payment = new GetBlitzClass(config);
+                    var GetBlitzClass = (typeof GetBlitz.GetBlitz === 'function') ? GetBlitz.GetBlitz : GetBlitz;
+                    var payment = new GetBlitzClass(config);
 
                 payment.mount("#getblitz-payment-container").catch(function(err) {
                     console.error("Failed to mount GetBlitz client:", err);
@@ -296,10 +295,11 @@ class WC_Gateway_GetBlitz extends WC_Payment_Gateway {
                         document.getElementById('getblitz-payment-container').style.display = 'none';
                         document.getElementById('getblitz-payment-status').style.display = 'block';
 
-                        var verifyUrl = "<?php echo $verify_url; ?>";
+                        var verifyUrl = "<?php echo esc_js($verify_url); ?>";
                         var formData  = new FormData();
                         formData.append('order_id',   "<?php echo esc_js($order_id); ?>");
                         formData.append('session_id', "<?php echo esc_js($session_id); ?>");
+                        formData.append('getblitz_nonce', "<?php echo esc_js(wp_create_nonce('getblitz_verify')); ?>");
 
                         fetch(verifyUrl, {
                             method: 'POST',
@@ -330,7 +330,8 @@ class WC_Gateway_GetBlitz extends WC_Payment_Gateway {
                     .on("onExpired", function() {
                         console.warn("GetBlitz Payment Session Expired");
                     });
-            })();
+                }, 100);
+            });
         </script>
         <?php
     }
@@ -346,14 +347,14 @@ class WC_Gateway_GetBlitz extends WC_Payment_Gateway {
         // Webhook Secret Check
         if (empty($this->webhook_secret)) {
             status_header(500);
-            error_log('GetBlitz Webhook Error: Webhook secret not configured in gateway settings.');
+            wc_get_logger()->error('GetBlitz Webhook Error: Webhook secret not configured in gateway settings.', array('source' => 'getblitz'));
             exit('Webhook not configured');
         }
 
         // Locate Signature via multiple forms it could take in headers
         $signature = '';
         if (isset($_SERVER['HTTP_X_GETBLITZ_SIGNATURE'])) {
-            $signature = $_SERVER['HTTP_X_GETBLITZ_SIGNATURE'];
+            $signature = sanitize_text_field(wp_unslash($_SERVER['HTTP_X_GETBLITZ_SIGNATURE']));
         } else {
             if (function_exists('getallheaders')) {
                 $headers = getallheaders();
@@ -415,6 +416,7 @@ class WC_Gateway_GetBlitz extends WC_Payment_Gateway {
 
             case 'payment.partial':
                 $paid = isset($event_data['amountPaidCents']) ? ($event_data['amountPaidCents'] / 100) : 0;
+                /* translators: %s: The amount paid in EUR */
                 $order->add_order_note(sprintf(__('GetBlitz: Partial payment received online: %s EUR.', 'getblitz-payment-gateway'), number_format($paid, 2)));
                 break;
 
@@ -434,12 +436,16 @@ class WC_Gateway_GetBlitz extends WC_Payment_Gateway {
     }
 
     public function verify_handler() {
+        if (!isset($_POST['getblitz_nonce']) || !wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['getblitz_nonce'])), 'getblitz_verify')) {
+            wp_send_json_error(array('message' => 'Invalid nonce'));
+        }
+
         if (empty($_POST['order_id']) || empty($_POST['session_id'])) {
             wp_send_json_error(array('message' => 'Missing parameters'));
         }
 
-        $order_id   = absint($_POST['order_id']);
-        $session_id = sanitize_text_field($_POST['session_id']);
+        $order_id   = absint(wp_unslash($_POST['order_id']));
+        $session_id = sanitize_text_field(wp_unslash($_POST['session_id']));
         
         $order = wc_get_order($order_id);
         
