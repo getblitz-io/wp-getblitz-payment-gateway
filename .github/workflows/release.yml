@@ -23,7 +23,8 @@ jobs:
         uses: cycjimmy/semantic-release-action@v4
         with:
           extra_plugins: |
-            @semantic-release/wordpress
+            @google/semantic-release-replace-plugin
+            @semantic-release/exec
             @semantic-release/changelog
             @semantic-release/git
         env:
