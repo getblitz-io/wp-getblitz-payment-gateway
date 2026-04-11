@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.2](https://github.com/getblitz-io/wp-getblitz-payment-gateway/compare/v0.1.1...v0.1.2) (2026-04-11)
+
+
+### Bug Fixes
+
+* add step-by-step configuration guide and new screenshots to plugin documentation and settings interface. ([0345f16](https://github.com/getblitz-io/wp-getblitz-payment-gateway/commit/0345f16138a9160c1ca07abf83f158342f2e3e26))
+
 ## [0.1.1](https://github.com/getblitz-io/wp-getblitz-payment-gateway/compare/v0.1.0...v0.1.1) (2026-04-09)
 
 
