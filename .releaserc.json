@@ -13,6 +13,7 @@
       {
         "type": "plugin",
         "slug": "getblitz-payment-gateway",
+        "releasePath": "/tmp/wp-release",
         "withAssets": false,
         "withReadme": true,
         "withVersionFile": true
@@ -23,7 +24,8 @@
       {
         "assets": [
           {
-            "path": "/tmp/wp-release/getblitz-payment-gateway.zip",
+            "path": "/tmp/wp-release/package.zip",
+            "name": "getblitz-payment-gateway-${nextRelease.version}.zip",
             "label": "GetBlitz Payment Gateway plugin"
           }
         ]
