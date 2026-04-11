@@ -1,3 +1,10 @@
+# [0.2.0](https://github.com/getblitz-io/wp-getblitz-payment-gateway/compare/v0.1.5...v0.2.0) (2026-04-11)
+
+
+### Features
+
+* setup automated wp plugin building and publishing via semantic-release ([0efd426](https://github.com/getblitz-io/wp-getblitz-payment-gateway/commit/0efd4266174fb2bb478da44b89e3113c80981ea5))
+
 # Changelog
 
 ## [0.1.5](https://github.com/getblitz-io/wp-getblitz-payment-gateway/compare/v0.1.4...v0.1.5) (2026-04-11)
