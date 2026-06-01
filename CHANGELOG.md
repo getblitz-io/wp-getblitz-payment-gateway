@@ -1,3 +1,10 @@
+## [0.0.2](https://github.com/getblitz-io/wp-getblitz-payment-gateway/compare/v0.0.1...v0.0.2) (2026-06-01)
+
+
+### Bug Fixes
+
+* assets enqueueing and external services disclosure ([b3581cd](https://github.com/getblitz-io/wp-getblitz-payment-gateway/commit/b3581cd8b3621b4388f7f52aa549d5af3b7fe84e))
+
 ## [0.0.1](https://github.com/getblitz-io/wp-getblitz-payment-gateway/compare/v0.0.0...v0.0.1) (2026-04-11)
 
 
