@@ -1,5 +1,5 @@
 === GetBlitz Payment Gateway ===
-Contributors: getblitz-io
+Contributors: aderopoa, getblitz-io
 Tags: sepa, payments, woocommerce, bank-transfer, getblitz
 Requires at least: 6.0
 Tested up to: 6.9
@@ -42,6 +42,29 @@ To complete the setup, please follow these steps in your GetBlitz Dashboard:
 * **API Key**: The API key allows the plugin to communicate securely with GetBlitz.
   * Go to `Getblitz -> Settings -> API Keys -> Generate New Key`
   * Copy this key into the plugin settings.
+
+== External services ==
+
+This plugin connects to GetBlitz services to initialize and process SEPA instant payments during checkout.
+
+1. GetBlitz REST API (`https://app.getblitz.io`)
+- Purpose: create payment sessions and verify final payment status for WooCommerce orders.
+- Data sent: order amount (in cents), currency, merchant reference ID (derived from WooCommerce order ID), API authentication token from your plugin settings, and session ID for status lookups.
+- When sent: when a customer starts payment and when the plugin verifies payment status after customer confirmation.
+
+2. GetBlitz webhook callback (from GetBlitz to your WordPress site)
+- Purpose: receive asynchronous payment events (`payment.success`, `payment.partial`, `payment.failed`, `payment.expired`) and update order status.
+- Data received and processed: merchant reference ID, event type, reference/session identifiers, and paid amount where applicable.
+- When received: after payment lifecycle events occur on GetBlitz.
+
+3. GetBlitz real-time WebSocket endpoint (`wss://app.getblitz.io` by default, configurable)
+- Purpose: provide real-time checkout payment state updates in the customer payment widget.
+- Data used: session ID/client token tied to the checkout payment session.
+- When used: while the customer is on the hosted payment widget flow.
+
+Service provider: GetBlitz
+- Terms of Service: https://getblitz.io/terms
+- Privacy Policy: https://getblitz.io/privacy
 
 == Frequently Asked Questions ==
 

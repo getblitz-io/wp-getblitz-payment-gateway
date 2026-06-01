@@ -229,30 +229,11 @@ class WC_Gateway_GetBlitz extends WC_Payment_Gateway {
         $js_api_url  = esc_js($this->api_url);
         $js_wss_url  = esc_js($this->wss_url);
         $verify_url  = esc_js(add_query_arg('wc-api', 'wc_gateway_getblitz_verify', home_url('/')));
-        
-        // Output widget UI container
+
+        $this->enqueue_receipt_assets($order_id, $session_id, $client_token, $verify_url, $js_api_url, $js_wss_url);
+
+        // Output widget UI container.
         ?>
-        <style>
-            #getblitz-payment-wrapper { position: relative; }
-            #getblitz-payment-status {
-                display: none;
-                text-align: center;
-                padding: 2em 1em;
-                font-size: 1.1em;
-            }
-            #getblitz-payment-status .getblitz-spinner {
-                display: inline-block;
-                width: 2em;
-                height: 2em;
-                border: 3px solid rgba(0,0,0,0.1);
-                border-top-color: #7c3aed;
-                border-radius: 50%;
-                animation: getblitz-spin 0.8s linear infinite;
-                margin-bottom: 0.75em;
-            }
-            @keyframes getblitz-spin { to { transform: rotate(360deg); } }
-            #getblitz-payment-status.error { color: #b91c1c; }
-        </style>
         <div id="getblitz-payment-wrapper">
             <div id="getblitz-payment-container"></div>
             <div id="getblitz-payment-status">
@@ -260,80 +241,50 @@ class WC_Gateway_GetBlitz extends WC_Payment_Gateway {
                 <p id="getblitz-status-message"><?php esc_html_e('Confirming your payment, please wait…', 'getblitz-payment-gateway'); ?></p>
             </div>
         </div>
-        <?php wp_enqueue_script('getblitz-client', GETBLITZ_PLUGIN_URL . 'assets/js/getblitz-client.js', array(), GETBLITZ_VERSION, true); ?>
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                var initGetBlitz = setInterval(function() {
-                    if (typeof GetBlitz === 'undefined') {
-                        return;
-                    }
-                    clearInterval(initGetBlitz);
-
-                    var config = {
-                        sessionId: "<?php echo esc_js($session_id); ?>",
-                        clientToken: "<?php echo esc_js($client_token); ?>"
-                    };
-
-                    <?php if (!empty($js_api_url)) : ?>
-                        config.apiUrl = "<?php echo esc_js($js_api_url); ?>";
-                    <?php endif; ?>
-
-                    <?php if (!empty($js_wss_url)) : ?>
-                        config.wssUrl = "<?php echo esc_js($js_wss_url); ?>";
-                    <?php endif; ?>
-
-                    var GetBlitzClass = (typeof GetBlitz.GetBlitz === 'function') ? GetBlitz.GetBlitz : GetBlitz;
-                    var payment = new GetBlitzClass(config);
-
-                payment.mount("#getblitz-payment-container").catch(function(err) {
-                    console.error("Failed to mount GetBlitz client:", err);
-                });
-
-                payment
-                    .on("onSuccess", function(token) {
-                        // Show loading state while we verify with the server
-                        document.getElementById('getblitz-payment-container').style.display = 'none';
-                        document.getElementById('getblitz-payment-status').style.display = 'block';
-
-                        var verifyUrl = "<?php echo esc_js($verify_url); ?>";
-                        var formData  = new FormData();
-                        formData.append('order_id',   "<?php echo esc_js($order_id); ?>");
-                        formData.append('session_id', "<?php echo esc_js($session_id); ?>");
-                        formData.append('getblitz_nonce', "<?php echo esc_js(wp_create_nonce('getblitz_verify')); ?>");
-
-                        fetch(verifyUrl, {
-                            method: 'POST',
-                            body: formData
-                        })
-                        .then(function(response) { return response.json(); })
-                        .then(function(json) {
-                            var redirectUrl = (json && json.data && json.data.redirect) ? json.data.redirect : null;
-                            if (redirectUrl) {
-                                window.location.href = redirectUrl;
-                            } else {
-                                // Unexpected: show a soft error but don't loop back to checkout
-                                document.getElementById('getblitz-payment-status').classList.add('error');
-                                document.getElementById('getblitz-status-message').textContent = "<?php echo esc_js(__('Payment received — your order is being processed. You will receive a confirmation email shortly.', 'getblitz-payment-gateway')); ?>";
-                                document.querySelector('#getblitz-payment-status .getblitz-spinner').style.display = 'none';
-                            }
-                        })
-                        .catch(function(err) {
-                            console.error('GetBlitz verify error:', err);
-                            document.getElementById('getblitz-payment-status').classList.add('error');
-                            document.getElementById('getblitz-status-message').textContent = "<?php echo esc_js(__('Payment received — your order is being processed. You will receive a confirmation email shortly.', 'getblitz-payment-gateway')); ?>";
-                            document.querySelector('#getblitz-payment-status .getblitz-spinner').style.display = 'none';
-                        });
-                    })
-                    .on("onError", function(error) {
-                        console.error("GetBlitz Payment Error:", error);
-                    })
-                    .on("onExpired", function() {
-                        console.warn("GetBlitz Payment Session Expired");
-                    });
-                }, 100);
-            });
-        </script>
         <?php
+    }
+
+    /**
+     * Enqueue receipt assets and inject dynamic runtime configuration.
+     */
+    private function enqueue_receipt_assets($order_id, $session_id, $client_token, $verify_url, $js_api_url, $js_wss_url) {
+        wp_enqueue_style(
+            'getblitz-receipt',
+            GETBLITZ_PLUGIN_URL . 'assets/css/getblitz-receipt.css',
+            array(),
+            GETBLITZ_VERSION
+        );
+
+        wp_enqueue_script(
+            'getblitz-client',
+            GETBLITZ_PLUGIN_URL . 'assets/js/getblitz-client.js',
+            array(),
+            GETBLITZ_VERSION,
+            true
+        );
+
+        wp_enqueue_script(
+            'getblitz-receipt',
+            GETBLITZ_PLUGIN_URL . 'assets/js/getblitz-receipt.js',
+            array('getblitz-client'),
+            GETBLITZ_VERSION,
+            true
+        );
+
+        wp_localize_script(
+            'getblitz-receipt',
+            'getblitzReceiptVars',
+            array(
+                'orderId'        => (string) $order_id,
+                'sessionId'      => (string) $session_id,
+                'clientToken'    => (string) $client_token,
+                'verifyUrl'      => (string) $verify_url,
+                'nonce'          => wp_create_nonce('getblitz_verify'),
+                'apiUrl'         => (string) $js_api_url,
+                'wssUrl'         => (string) $js_wss_url,
+                'softErrorText'  => __('Payment received — your order is being processed. You will receive a confirmation email shortly.', 'getblitz-payment-gateway'),
+            )
+        );
     }
 
     public function webhook_handler() {
