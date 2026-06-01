@@ -1,3 +1,10 @@
+## [0.0.3](https://github.com/getblitz-io/wp-getblitz-payment-gateway/compare/v0.0.2...v0.0.3) (2026-06-01)
+
+
+### Bug Fixes
+
+* update tested up to wordpress version to 7.0 ([363d799](https://github.com/getblitz-io/wp-getblitz-payment-gateway/commit/363d799a4f86a2c5dbd055878452152041a9c6a2))
+
 ## [0.0.2](https://github.com/getblitz-io/wp-getblitz-payment-gateway/compare/v0.0.1...v0.0.2) (2026-06-01)
 
 
