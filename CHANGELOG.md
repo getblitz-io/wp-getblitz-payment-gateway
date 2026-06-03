@@ -1,3 +1,10 @@
+## [0.0.4](https://github.com/getblitz-io/wp-getblitz-payment-gateway/compare/v0.0.3...v0.0.4) (2026-06-03)
+
+
+### Bug Fixes
+
+* configure automated deployment to wordpress.org ([66453a7](https://github.com/getblitz-io/wp-getblitz-payment-gateway/commit/66453a76a81b452db0d7d5a0a01eb7ee7716fa0b))
+
 ## [0.0.3](https://github.com/getblitz-io/wp-getblitz-payment-gateway/compare/v0.0.2...v0.0.3) (2026-06-01)
 
 
