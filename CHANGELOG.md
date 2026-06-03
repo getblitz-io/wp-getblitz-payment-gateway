@@ -1,3 +1,10 @@
+## [0.0.5](https://github.com/getblitz-io/wp-getblitz-payment-gateway/compare/v0.0.4...v0.0.5) (2026-06-03)
+
+
+### Bug Fixes
+
+* replace banner for wordpress org ([c5d593c](https://github.com/getblitz-io/wp-getblitz-payment-gateway/commit/c5d593c088f7a4aab46ea42509ebb2987f2bb8df))
+
 ## [0.0.4](https://github.com/getblitz-io/wp-getblitz-payment-gateway/compare/v0.0.3...v0.0.4) (2026-06-03)
 
 
