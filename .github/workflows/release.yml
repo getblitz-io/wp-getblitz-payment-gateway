@@ -20,6 +20,7 @@ jobs:
           fetch-depth: 0
 
       - name: Semantic Release
+        id: semantic
         uses: cycjimmy/semantic-release-action@v4
         with:
           extra_plugins: |
@@ -29,3 +30,12 @@ jobs:
             @semantic-release/git
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Deploy to WordPress.org
+        if: steps.semantic.outputs.new_release_published == 'true'
+        uses: 10up/action-wordpress-plugin-deploy@stable
+        env:
+          SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+          SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+          SLUG: getblitz-payment-gateway
+          VERSION: ${{ steps.semantic.outputs.new_release_version }}
